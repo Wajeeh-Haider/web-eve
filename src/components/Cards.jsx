@@ -1,7 +1,21 @@
 import { Card, Button, Col } from "react-bootstrap";
 import { useState } from "react";
- 
-const Cards = ({ title, btnType, verify, children, onPlay, onPause , deleteCard }) => {
+import { Link } from "react-router-dom";
+
+const Cards = ({
+  name,
+  lastName,
+  address,
+  description,
+  image,
+  id,
+  btnType,
+  verify,
+  children,
+  onPlay,
+  onPause,
+  deleteCard,
+}) => {
   const [toggle, setToggle] = useState(0);
 
   // function handleClick(e) {
@@ -11,19 +25,24 @@ const Cards = ({ title, btnType, verify, children, onPlay, onPause , deleteCard 
 
   //   console.log(toggle);
   // }
-  
+
   return (
     <Col md={4} lg={6}>
       <Card>
-        <Card.Img variant="top" src="holder.js/100px180" />
+        <Card.Img variant="top" src={`${image}`} />
         <Card.Body>
           <Card.Title>
-            {title} {toggle}
+            {name} {lastName}
           </Card.Title>
-          <Card.Text>{children}</Card.Text>
-          <Button variant={btnType} onClick={(e) => deleteCard(e,title)}>
-            {title} {toggle ? "✔️" : "❌"}
+          <Card.Text>{description}</Card.Text>
+          <Button variant={"success"} onClick={(e) => deleteCard(e, name)}>
+            {name}
           </Button>
+          <Link to={`/view-product/${id}`}>
+            <Button variant={"primary"} onClick={(e) => deleteCard(e, name)}>
+              View Product
+            </Button>
+          </Link>
         </Card.Body>
       </Card>
     </Col>
