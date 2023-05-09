@@ -35,13 +35,11 @@ const Cards = ({
             {name} {lastName}
           </Card.Title>
           <Card.Text>{description}</Card.Text>
-          <Button variant={"success"} onClick={(e) => deleteCard(e, name)}>
+          <Button variant={"danger"} onClick={(e) => deleteCard(e, name)}>
             {name}
           </Button>
           <Link to={`/view-product/${id}`}>
-            <Button variant={"primary"} onClick={(e) => deleteCard(e, name)}>
-              View Product
-            </Button>
+            <Button variant={"primary"}>View Product</Button>
           </Link>
         </Card.Body>
       </Card>

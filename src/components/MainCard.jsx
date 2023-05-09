@@ -10,7 +10,7 @@ function MainCard() {
   const deleteCard = (e, name) => {
     e.stopPropagation();
     const filterArray = data.filter((item) => {
-      return item.title !== name;
+      return item.name !== name;
     });
     setData(filterArray);
   };

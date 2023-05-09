@@ -17,7 +17,7 @@ const View = () => {
     }
 
     handleAPICall();
-  }, []);
+  }, [param.id]);
 
   return (
     <>
